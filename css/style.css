@@ -1,0 +1,58 @@
+#app{
+	/*margin:0 auto;*/
+	/*border:1px red solid;*/
+}
+#app table{
+	text-align: center;
+	/*margin:0 auto;*/
+}
+#app table input{
+	cursor: pointer;
+}
+#app table tbody tr td a{
+	/*text-decoration: none;*/
+}
+#app table tbody tr .tdw{
+	height:200px;
+	/*border: 1px solid red;*/
+}
+#app table tbody tr td img{
+	display: block;
+	height:200px;
+	width:200px;
+	/*border: 1px solid #ccc;*/
+}
+#app table tfoot{
+	text-align: left;
+}
+#app table .account{
+	text-decoration: none;
+	display: block;
+	border: 1px solid #ff7f00;
+	border-radius: 5px;
+	width:100px;
+	text-align: center;
+	height:50px;
+	line-height: 50px;
+	font-size: 20px;
+	background-color:#ff7f00;
+	color:white;
+}
+#app table tbody .num{
+	width: 60px;
+	text-align:center;
+}
+
+#app table tbody .comIntro{
+	list-style: none;
+	text-align: left;
+}
+#app table tfoot tr:nth-child(1){
+	text-align: center;
+}
+#app table tfoot .moreColor{
+	background-color: #fff68f;
+}
+#app table tfoot .normalMoreColor{
+	background-color: #f8f8ff;
+}

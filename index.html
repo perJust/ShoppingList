@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>shoppinglist</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<script src='./src/vue.js'></script>
+</head>
+<body>
+	<div id="app">
+		<h3>购物清单</h3>
+		<hr width='1060' style='margin-left:0'>
+		<table width="1060" 
+		style="border-collapse:collapse">
+			<thead>
+				<tr>
+					<th width="280" colspan="2"><input type="checkbox" class="allselect" v-model="allselectdata" @click="allselecthandle"><label for="allselect">全选</label></th>	
+					<th width="280" width="120">商品</th>
+					<th width="200">数量</th>
+					<th width="100">单价</th>
+					<th width="100">金额</th>
+					<th width="100">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(item,index) in listshop">
+					<td><input :name="item.name" type="checkbox" v-model="dataCheck[index]">{{dataCheck}}</td>
+					<td class="tdw"><img :src="item.img" alt="图片"></td>
+					<td>
+						<ul class="comIntro">
+							<li>{{item.name}}</li>
+							<li>{{item.origin}}</li>
+							<li>面料{{item.material}}%</li>
+							<li>商品描述：{{item.description}}</li>
+						</ul>
+					</td>
+					<td>
+						<!--放一行的作用，避免水平方向inline-block的间隙-->
+						<button @click="devquantity(index)" :disabled="devDisabled[index]">-</button><input type="text" class="num" v-model="num[index]" @keyup="quantity(index)"/><button @click="addquantity(index)">+</button>{{num}}
+					
+					</td>
+					<td>{{item.price}}</td>
+					<td>{{sumAllMedium[index] = sum(num[index],item.price)}}</td>
+					<td><a href="javascript:;" @click="dataDelete(index)">删除</a></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="7"><button   @click="addData" :class="{moreColor:dataBoolean,normalMoreColor:!dataBoolean}" :disabled="dataDisabled" >{{dataAbout}}</button></td>
+				</tr>
+				<tr>
+					<td colspan="2"><a href="javascript:;" @click="deleteSelect">&times;删除所选商品</a></td>
+					<td><a href="javascript:;" @click="dataDeleteAll()">清空购物车</a></td>
+					<td colspan="3">总金额:<mark>{{sumAll}}</mark></td>	
+					<td><a href="javascript:;" class="account">去结算</a></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	
+<script src='./app/app.js'></script>
+</body>
+</html>
